@@ -1,0 +1,30 @@
+package:
+  name: pyworms
+  version: "0.1.7"
+
+source:
+  path: ../
+
+build:
+  number: 0
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
+
+requirements:
+  build:
+    - python
+    - pip
+  run:
+    - python
+    - requests
+
+test:
+  source_files:
+    - pyworms
+    - test
+  commands:
+    - python -m unittest test/test.py
+
+about:
+  home: https://github.com/iobis/pyworms
+  summary: 'Python client for the World Register of Marine Species (WoRMS) REST service'
